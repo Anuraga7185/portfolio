@@ -22,7 +22,7 @@ const toolCategories = [
   {
     category: 'Email & CRM',
     description: 'Email campaigns and automation',
-    url: '/demo/email-crm.html',
+    url: `${import.meta.env.BASE_URL}demo/email-crm.html`,
     tools: [
       { name: 'HubSpot', level: 'Intermediate' },
       { name: 'Mailchimp', level: 'Intermediate' },
