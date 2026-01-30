@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aishwarya Gupta - Campaign Report | Email & CRM (B2B Growth Core)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .deck-container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            padding: 60px;
+            min-height: 600px;
+        }
+
+        .slide.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-title {
+            font-size: 2.5em;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .slide-subtitle {
+            font-size: 1.2em;
+            color: #667eea;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .company-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .campaign-type {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* Email Mockup */
+        .email-mockup {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+            border: 2px solid #e9ecef;
+        }
+
+        .email-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #dee2e6;
+            margin-bottom: 20px;
+        }
+
+        .email-from {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+
+        .email-subject {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #212529;
+            margin-bottom: 15px;
+        }
+
+        .email-body {
+            line-height: 1.8;
+            color: #495057;
+        }
+
+        .email-cta {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 20px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .email-cta:hover {
+            background: #5568d3;
+        }
+
+        /* Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+
+        .metric-value {
+            font-size: 3em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 1em;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .metric-context {
+            font-size: 0.85em;
+            color: #6c757d;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Flow */
+        .flow-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .flow-step {
+            flex: 1;
+            min-width: 180px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .flow-step-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .flow-step-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .flow-step-desc {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+
+        .flow-arrow {
+            font-size: 2em;
+            color: #667eea;
+            flex-shrink: 0;
+        }
+
+        /* Navigation */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 60px;
+            background: #f8f9fa;
+            border-top: 2px solid #e9ecef;
+        }
+
+        .nav-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #5568d3;
+        }
+
+        .nav-btn:disabled {
+            background: #adb5bd;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .timeline-marker {
+            font-size: 2em;
+            flex-shrink: 0;
+        }
+
+        .timeline-content h4 {
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+
+        .impact-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .impact-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .impact-list li:last-child {
+            border-bottom: none;
+        }
+
+        .impact-icon {
+            font-size: 1.5em;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="deck-container">
+        
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <div style="text-align: center; padding: 40px 0;">
+                <div style="font-size: 1.4em; color: #667eea; font-weight: 600; margin-bottom: 15px;">Aishwarya Gupta</div>
+                <span class="company-badge">Javin Global - Hired60</span>
+                <h1 class="slide-title" style="margin-top: 20px;">Campaign Report: Email & CRM</h1>
+                <p class="slide-subtitle">B2B Growth Core - HR Professional Outreach</p>
+                <div style="font-size: 1.1em; color: #6c757d; margin: 30px 0;">
+                    7-10 Month Campaign - Product Feedback & Early Customer Acquisition
+                </div>
+                <div style="margin-top: 50px;">
+                    <p style="color: #495057; font-size: 1.1em; line-height: 1.8; max-width: 700px; margin: 0 auto;">
+                        Led email outreach strategy for Hired60, an HR tech platform connecting candidates with companies. 
+                        Responsible for gathering product feedback from HR professionals while building pre-launch customer pipeline.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Campaign Overview -->
+        <div class="slide">
+            <span class="campaign-type">Pre-Launch Strategy</span>
+            <h2 class="slide-title">Campaign Overview</h2>
+            <p class="slide-subtitle">Daily outreach to HR decision-makers</p>
+
+            <div class="info-box">
+                <h3 style="margin-bottom: 15px; color: #2196F3;">Campaign Objectives</h3>
+                <ul style="margin-left: 20px; line-height: 2; color: #495057;">
+                    <li><strong>Primary:</strong> Gather product feedback from HR professionals on platform features</li>
+                    <li><strong>Secondary:</strong> Build early customer pipeline by pitching Hired60's value proposition</li>
+                    <li><strong>Target:</strong> HR managers, talent acquisition leads, and recruiters at mid-size companies</li>
+                </ul>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 40px; border-radius: 12px; margin-top: 30px;">
+                <h3 style="margin-bottom: 25px; color: #495057;">Campaign Snapshot</h3>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">7-10</div>
+                        <div class="metric-label">Months Duration</div>
+                        <div class="metric-context">Pre-launch period</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">100</div>
+                        <div class="metric-label">Emails per Day</div>
+                        <div class="metric-context">Personalized outreach</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">21-30K</div>
+                        <div class="metric-label">Total Emails Sent</div>
+                        <div class="metric-context">Over campaign period</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Email Example 1 - Initial Outreach -->
+        <div class="slide">
+            <span class="campaign-type">Cold Outreach</span>
+            <h2 class="slide-title">Sample Email: Initial Contact</h2>
+            <p class="slide-subtitle">Personalized approach to HR professionals</p>
+            
+            <div class="email-mockup">
+                <div class="email-header">
+                    <div>
+                        <div class="email-from">From: outreach@hired60.com</div>
+                        <div class="email-from">To: hr.director@companyxyz.com</div>
+                    </div>
+                    <div style="font-size: 0.9em; color: #6c757d;">Day 1 - Initial</div>
+                </div>
+                <div class="email-subject">
+                    Quick question about your hiring process at [Company]
+                </div>
+                <div class="email-body">
+                    <p>Hi [Name],</p>
+                    <p>I noticed [Company] recently posted 5+ open roles on LinkedIn. Congrats on the growth!</p>
+                    <p>I'm reaching out because we're building Hired60 - a platform that helps companies like yours discover pre-vetted candidates. We're currently gathering feedback from HR leaders before launch.</p>
+                    <p><strong>Quick question:</strong> What's your biggest challenge when sourcing quality candidates right now?</p>
+                    <p>We'd love 15 minutes of your time to:</p>
+                    <ul style="margin: 15px 0 15px 30px;">
+                        <li>Share what we're building (with a quick demo)</li>
+                        <li>Get your honest feedback on features</li>
+                        <li>Learn about your current hiring pain points</li>
+                    </ul>
+                    <p>In exchange, you'll get early access when we launch + your feedback will directly shape the product.</p>
+                    <a href="#" class="email-cta">Book a 15-Min Call →</a>
+                    <p style="margin-top: 20px; font-size: 0.9em; color: #6c757d;">
+                        P.S. - We're already working with beta testers from [Similar Company 1] and [Similar Company 2]. Happy to share what they're saying!
+                    </p>
+                </div>
+            </div>
+
+            <div class="success-box" style="margin-top: 30px;">
+                <strong>Why This Worked:</strong>
+                <ul style="margin: 10px 0 0 20px; color: #155724; line-height: 1.8;">
+                    <li>Personalized with company-specific research (open roles)</li>
+                    <li>Clear value exchange: feedback for early access</li>
+                    <li>Low-commitment ask: 15 minutes, not a sales call</li>
+                    <li>Social proof from similar companies</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 4: Email Example 2 - Follow-up -->
+        <div class="slide">
+            <span class="campaign-type" style="background: #fd7e14;">Follow-Up</span>
+            <h2 class="slide-title">Sample Email: Follow-Up</h2>
+            <p class="slide-subtitle">Persistence with added value</p>
+            
+            <div class="email-mockup">
+                <div class="email-header">
+                    <div>
+                        <div class="email-from">From: outreach@hired60.com</div>
+                        <div class="email-from">To: hr.director@companyxyz.com</div>
+                    </div>
+                    <div style="font-size: 0.9em; color: #6c757d;">Day 4 - Follow-up</div>
+                </div>
+                <div class="email-subject">
+                    Re: Quick question about your hiring process at [Company]
+                </div>
+                <div class="email-body">
+                    <p>Hi [Name],</p>
+                    <p>Following up on my message earlier this week - I know inboxes get busy!</p>
+                    <p>I wanted to share something specific that might be relevant: We just added a feature based on feedback from [Similar Company] where candidates can showcase project portfolios, not just resumes.</p>
+                    <p><strong>Early beta testers told us this cut their screening time by 40%</strong> because they could assess real work upfront.</p>
+                    <p>Still interested in giving feedback? We're only doing 10 more feedback sessions this month before we finalize features.</p>
+                    <a href="#" class="email-cta">Grab a 15-Min Slot →</a>
+                    <p style="margin-top: 20px; font-size: 0.9em; color: #6c757d;">
+                        Not interested? No problem - just reply "not now" and I won't follow up again.
+                    </p>
+                </div>
+            </div>
+
+            <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; border-radius: 8px; margin-top: 30px;">
+                <strong>Follow-Up Strategy:</strong>
+                <ul style="margin: 10px 0 0 20px; color: #856404; line-height: 1.8;">
+                    <li>Added new value (specific feature update)</li>
+                    <li>Included social proof with measurable result (40% time savings)</li>
+                    <li>Created urgency (limited feedback slots)</li>
+                    <li>Gave easy opt-out option to respect their time</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 5: Simple Workflow -->
+        <div class="slide">
+            <h2 class="slide-title">Daily Workflow</h2>
+            <p class="slide-subtitle">My repeatable outreach process</p>
+
+            <div style="background: #f8f9fa; padding: 40px; border-radius: 12px; margin: 30px 0;">
+                <div class="flow-container">
+                    <div class="flow-step">
+                        <div class="flow-step-title">Research</div>
+                        <div class="flow-step-desc">Find 100 HR pros on LinkedIn</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="flow-step-title">Personalize</div>
+                        <div class="flow-step-desc">Customize each email</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="flow-step-title">Send</div>
+                        <div class="flow-step-desc">100 emails/day via Mailchimp</div>
+                    </div>
+                </div>
+
+                <div class="flow-container" style="margin-top: 30px;">
+                    <div class="flow-step">
+                        <div class="flow-step-title">Track</div>
+                        <div class="flow-step-desc">Monitor opens & replies</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
+                        <div class="flow-step-title">Book Meeting</div>
+                        <div class="flow-step-desc">~1 meeting per day</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step" style="background: linear-gradient(135deg, #fd7e14 0%, #ffc107 100%);">
+                        <div class="flow-step-title">Gather Insights</div>
+                        <div class="flow-step-desc">Product feedback + pitch</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>Daily Routine Breakdown</h4>
+                    <p style="color: #6c757d; line-height: 1.8;">
+                        <strong>Morning (9-11 AM):</strong> Research companies, identify HR contacts, personalize email templates<br>
+                        <strong>Midday (11-1 PM):</strong> Send 100 emails via Mailchimp<br>
+                        <strong>Afternoon (2-5 PM):</strong> Follow-up on replies, book meetings, conduct feedback calls<br>
+                        <strong>EOD:</strong> Log feedback, update CRM, prep for tomorrow's batch
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Real Metrics -->
+        <div class="slide">
+            <h2 class="slide-title">Campaign Results</h2>
+            <p class="slide-subtitle">Honest metrics from 7-10 months of outreach</p>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">20%</div>
+                    <div class="metric-label">Average Open Rate</div>
+                    <div class="metric-context">Solid for cold B2B outreach</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">4,200-6,000</div>
+                    <div class="metric-label">Emails Opened</div>
+                    <div class="metric-context">Out of 21-30K sent</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">210-300</div>
+                    <div class="metric-label">Meetings Booked</div>
+                    <div class="metric-context">~1 per day average</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">5%</div>
+                    <div class="metric-label">Meeting Conversion</div>
+                    <div class="metric-context">From emails opened</div>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 40px;">
+                <h3 style="margin-bottom: 15px; color: #2196F3;">What These Numbers Mean</h3>
+                <ul style="margin-left: 20px; line-height: 2; color: #495057;">
+                    <li><strong>20% open rate</strong> is realistic for personalized cold outreach to HR professionals (industry average is 15-25%)</li>
+                    <li><strong>210-300 meetings</strong> over 7-10 months = consistent pipeline of product feedback and potential customers</li>
+                    <li><strong>5% meeting rate</strong> from opens shows quality targeting and compelling value proposition</li>
+                    <li>Each meeting provided insights that shaped Hired60's features before launch</li>
+                </ul>
+            </div>
+
+            <div class="success-box" style="margin-top: 30px;">
+                <strong>Key Learnings:</strong>
+                <ul style="margin: 10px 0 0 20px; color: #155724; line-height: 1.8;">
+                    <li>Personalization matters: Emails with company research had 2x higher reply rate</li>
+                    <li>Tuesday-Thursday 10 AM sends performed best</li>
+                    <li>Subject lines under 50 characters got more opens</li>
+                    <li>Asking for feedback (not selling) lowered resistance</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 7: Impact -->
+        <div class="slide">
+            <h2 class="slide-title">Impact & Outcomes</h2>
+            <p class="slide-subtitle">How this campaign helped shape Hired60</p>
+
+            <ul class="impact-list">
+                <li>
+                    <div>
+                        <strong style="color: #667eea;">Product Feedback Integration</strong>
+                        <p style="color: #6c757d; margin-top: 5px;">Gathered insights from 210-300+ HR professionals that directly influenced platform features before launch</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong style="color: #667eea;">Feature Prioritization</strong>
+                        <p style="color: #6c757d; margin-top: 5px;">Top HR request: Portfolio showcases for candidates - feature was built based on consistent feedback</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong style="color: #667eea;">Early Customer Pipeline</strong>
+                        <p style="color: #6c757d; margin-top: 5px;">Built relationships with dozens of HR decision-makers interested in using Hired60 at launch</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong style="color: #667eea;">Market Validation</strong>
+                        <p style="color: #6c757d; margin-top: 5px;">Consistent meeting bookings validated demand for Hired60's value proposition in the HR tech space</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong style="color: #667eea;">Beta Tester Recruitment</strong>
+                        <p style="color: #6c757d; margin-top: 5px;">Email outreach helped recruit both professional and college student beta testers for platform testing</p>
+                    </div>
+                </li>
+            </ul>
+
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; border-radius: 12px; margin-top: 40px; text-align: center;">
+                <h3 style="font-size: 1.8em; margin-bottom: 15px;">Key Takeaway</h3>
+                <p style="font-size: 1.1em; line-height: 1.8; opacity: 0.95;">
+                    Led a sustained 7-10 month email campaign that balanced two critical pre-launch objectives: 
+                    gathering actionable product feedback from HR professionals while simultaneously building 
+                    an early customer pipeline. The campaign's success wasn't just in numbers, but in 
+                    helping shape Hired60's product roadmap before launch.
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Tools & Skills -->
+        <div class="slide">
+            <h2 class="slide-title">Tools & Skills Applied</h2>
+            <p class="slide-subtitle">Technical capabilities demonstrated</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;">
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 35px; border-radius: 12px;">
+                    <h3 style="font-size: 1.5em; margin-bottom: 20px;">Email Marketing</h3>
+                    <ul style="line-height: 2; opacity: 0.95;">
+                        <li>Mailchimp campaign management</li>
+                        <li>Email copywriting & personalization</li>
+                        <li>A/B testing subject lines</li>
+                        <li>Tracking & analytics</li>
+                        <li>Deliverability optimization</li>
+                    </ul>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #20c997 0%, #17a2b8 100%); color: white; padding: 35px; border-radius: 12px;">
+                    <h3 style="font-size: 1.5em; margin-bottom: 20px;">B2B Outreach</h3>
+                    <ul style="line-height: 2; opacity: 0.95;">
+                        <li>LinkedIn prospecting</li>
+                        <li>Cold outreach strategy</li>
+                        <li>Objection handling</li>
+                        <li>Meeting conversion tactics</li>
+                        <li>Follow-up sequences</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 35px; border-radius: 12px; margin-top: 30px;">
+                <h3 style="margin-bottom: 25px; color: #495057;">Additional Skills Demonstrated</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px;">
+                    <div style="text-align: center;">
+                        <strong style="color: #667eea;">Data Analysis</strong>
+                        <p style="color: #6c757d; margin-top: 8px; font-size: 0.9em;">Tracked metrics, identified patterns</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <strong style="color: #667eea;">Stakeholder Communication</strong>
+                        <p style="color: #6c757d; margin-top: 8px; font-size: 0.9em;">Presented feedback to product team</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <strong style="color: #667eea;">Process Management</strong>
+                        <p style="color: #6c757d; margin-top: 8px; font-size: 0.9em;">Sustained daily workflow for 7-10 months</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <strong style="color: #667eea;">Market Research</strong>
+                        <p style="color: #6c757d; margin-top: 8px; font-size: 0.9em;">Identified target HR personas</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <strong style="color: #667eea;">Copywriting</strong>
+                        <p style="color: #6c757d; margin-top: 8px; font-size: 0.9em;">Personalized, conversion-focused</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <strong style="color: #667eea;">Goal-Oriented Execution</strong>
+                        <p style="color: #6c757d; margin-top: 8px; font-size: 0.9em;">Met daily meeting targets</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+            <div class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">8</span>
+            </div>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('totalSlides').textContent = totalSlides;
+
+            prevBtn.disabled = currentSlide === 1;
+            nextBtn.disabled = currentSlide === totalSlides;
+        }
+
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>

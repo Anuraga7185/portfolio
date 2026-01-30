@@ -14,13 +14,15 @@ const toolCategories = [
     category: 'SEO & Research',
     description: 'Keyword research and market analysis',
     tools: [
-      { name: 'SEMrush', level: 'Basic' },
-      { name: 'Market Research', level: 'Intermediate' },
+      { name: 'Content Gap Analysis', level: 'Basic', url: 'https://docs.google.com/document/d/1pWTxxW3HPbvzJQTkR81G7jVGEbA0srQf/edit?usp=drive_link&ouid=100211897775260305611&rtpof=true&sd=true' },
+      { name: 'Keyword Research', level: 'Advanced', url: 'https://docs.google.com/document/d/1Mgb4gCwId8BXUfHQW-UnMKDhOt3uwlaW/edit?usp=drive_link&ouid=100211897775260305611&rtpof=true&sd=true' },
+      { name: 'Market Research', level: 'Intermediate', url: 'https://docs.google.com/presentation/d/15XXrn2HtGIXhEIaHgf2dQvbFNjOA4r6g/edit?usp=drive_link&ouid=100211897775260305611&rtpof=true&sd=true' },
     ],
   },
   {
     category: 'Email & CRM',
     description: 'Email campaigns and automation',
+    url: '/demo/email-crm.html',
     tools: [
       { name: 'HubSpot', level: 'Intermediate' },
       { name: 'Mailchimp', level: 'Intermediate' },
@@ -85,38 +87,67 @@ export const Tools = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {toolCategories.map((category, index) => (
-            <div
-              key={category.category}
-              className="p-6 rounded-xl bg-card border border-border card-hover"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <h3 className="text-lg font-semibold text-foreground mb-2">
-                {category.category}
-              </h3>
-              <p className="text-sm text-muted-foreground mb-4">
-                {category.description}
-              </p>
-              <div className="space-y-3">
-                {category.tools.map((tool) => (
-                  <div
-                    key={tool.name}
-                    className="flex items-center justify-between"
-                  >
-                    <span className="text-foreground">{tool.name}</span>
-                    <span
-                      className={`text-xs font-medium px-2 py-1 rounded-full ${getLevelColor(
-                        tool.level
-                      )}`}
-                    >
-                      {tool.level}
-                    </span>
-                  </div>
-                ))}
+          {toolCategories.map((category, index) => {
+            const cardContent = (
+              <div
+                className="p-6 rounded-xl bg-card border border-border card-hover h-full"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  {category.category}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {category.description}
+                </p>
+
+                <div className="space-y-3">
+                  {category.tools.map((tool) => (
+                    <div key={tool.name} className="flex items-center justify-between">
+                      {tool.url ? (
+                        <a
+                          href={tool.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-foreground hover:text-accent transition-colors"
+                          onClick={(e) => e.stopPropagation()} // important if card is clickable
+                        >
+                          {tool.name}
+                        </a>
+                      ) : (
+                        <span className="text-foreground">{tool.name}</span>
+                      )}
+
+                      <span
+                        className={`text-xs font-medium px-2 py-1 rounded-full ${getLevelColor(
+                          tool.level
+                        )}`}
+                      >
+                        {tool.level}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+
+            return category.url ? (
+              <a
+                key={category.category}
+                href={category.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block h-full"
+              >
+                {cardContent}
+              </a>
+            ) : (
+              <div key={category.category} className="h-full">
+                {cardContent}
+              </div>
+            );
+          })}
         </div>
+
 
         {/* Certifications */}
         <div className="mt-12 p-6 rounded-xl bg-card border border-border">

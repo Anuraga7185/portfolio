@@ -39,7 +39,7 @@ export const Contact = () => {
                       Email
                     </span>
                     <span className="font-medium text-foreground">
-                      aishwarya.gupta@email.com
+                      Gupta995646@gmail.com
                     </span>
                   </div>
                 </a>
@@ -58,7 +58,7 @@ export const Contact = () => {
                       LinkedIn
                     </span>
                     <span className="font-medium text-foreground">
-                      linkedin.com/in/aishwaryagupta
+                      https://www.linkedin.com/in/aishwarya-gupta-381500250/
                     </span>
                   </div>
                 </a>
@@ -72,7 +72,7 @@ export const Contact = () => {
                       Location
                     </span>
                     <span className="font-medium text-foreground">
-                      New Delhi, India • Open to Remote
+                      India
                     </span>
                   </div>
                 </div>
@@ -109,7 +109,7 @@ export const Contact = () => {
           </div>
 
           {/* Target Roles */}
-          <div className="mt-12 p-6 rounded-xl bg-muted/50 border border-border">
+          {/* <div className="mt-12 p-6 rounded-xl bg-muted/50 border border-border">
             <h4 className="font-medium text-foreground mb-4 text-center">
               Roles I'm Targeting
             </h4>
@@ -129,7 +129,7 @@ export const Contact = () => {
                 </span>
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Leadership Section */}
           <div className="mt-12 p-8 rounded-2xl bg-background border border-border">
@@ -151,13 +151,16 @@ export const Contact = () => {
                   Conducted 20+ virtual computer classes for rural students
                 </p>
               </div>
+          
+              
               <div className="text-center p-4">
-                <h4 className="font-medium text-foreground">NGO Volunteer</h4>
-                <p className="text-accent text-sm">Nepal • 2019</p>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Participated in cultural programs and hosted community events
+                <h4 className="font-medium text-foreground">Delegate UNSC Model</h4>
+                <p className="text-accent text-sm">United Nations • Chile & Pakistan </p>
+                <p className="text-sm text-muted-foreground mt-2">Conducted policy research and represented national positions.
+                  Participated in negotiations, debates, and resolution drafting
                 </p>
               </div>
+
             </div>
           </div>
         </div>

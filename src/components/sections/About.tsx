@@ -26,41 +26,43 @@ const highlights = [
 const experiences = [
   {
     role: 'Marketing Associate',
-    company: 'Current Role',
-    period: 'Present',
+    company: 'Javin',
+    period: 'Dec 2024 - Nov 2025',
     highlights: [
-      'Collaborating with product, sales, and engineering teams',
-      'Developing data-driven dashboards and reports',
-      'Creating marketing assets for product positioning',
-      'Monitoring market trends and competitor activity',
+      'Collaborate cross-functionally to align product messaging with GTM goals',
+      'Build data-driven dashboards and reports to measure campaign and funnel performance',
+      'Create digital marketing and content assets for product positioning and sales enablement',
+      'Track competitor activity and market trends to inform strategy and messaging',
     ],
   },
   {
     role: 'Marketing Intern',
     company: 'AndPurpose',
-    period: 'Dec 2024 - Mar 2025',
+    period: 'Oct 2024 - Dec 2024',
     highlights: [
-      'Conducted market research on sustainable brands',
-      'Explored eco-conscious communities',
+      'Conducted in-depth market and competitor research on sustainable B2B and D2C brands',
+      'Identified and analyzed eco-conscious communities and influencer ecosystems',
+      'Supported partnership and influencer discovery through audience and brand alignment research',
     ],
   },
   {
     role: 'Lead Generation Intern',
     company: 'MyWay AI',
-    period: 'Aug - Oct 2024',
+    period: 'Aug 2024 - Oct 2024',
     highlights: [
-      'Optimized outreach strategy using Excel and CRM data',
-      'Executed targeted cold emailing/calling campaigns',
-      'Designed email campaigns boosting engagement',
+      'Optimized outreach strategies using Excel-based analysis and CRM data',
+      'Executed targeted cold email and calling campaigns across defined ICPs',
+      'Designed and tested email campaigns that improved engagement and response rates',
     ],
   },
   {
     role: 'Marketing Intern',
     company: 'De Chevalier (France)',
-    period: 'Feb - Mar 2024',
+    period: 'Feb 2024 - Mar 2024',
     highlights: [
-      'Performed social media engagement analysis',
-      'Designed marketing materials using Adobe suite',
+      'Analyzed social media engagement and campaign performance metrics',
+      'Designed marketing creatives using Adobe tools to support digital campaigns',
+      'Assisted with content execution aligned to brand and audience insights'
     ],
   },
 ];

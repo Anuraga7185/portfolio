@@ -30,14 +30,12 @@ export const Hero = () => {
 
           {/* Role */}
           <p className="text-xl md:text-2xl text-accent font-medium mb-6 animate-fade-in-up delay-100">
-            Product Marketing Associate
+           Marketing Associate
           </p>
 
           {/* Value Proposition */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in-up delay-200">
-            Early-career marketer with hands-on experience in campaign execution, 
-            data-driven analytics, and content creation. Turning insights into growth 
-            and stories into impact.
+            I’m a B2B marketer focused on turning customer and market insights into effective go-to-market execution. My experience spans research, campaigns, Partnership, Digital Marketing, content, Influencer Marketing, and performance analysis, working across the funnel from awareness to conversion to drive measurable growth.
           </p>
 
           {/* CTA Buttons */}
@@ -49,7 +47,7 @@ export const Hero = () => {
               </a>
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/aishwarya-gupta-381500250/" target="_blank" rel="noopener noreferrer">
                 <Linkedin size={20} />
                 LinkedIn
               </a>
