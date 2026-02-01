@@ -45,7 +45,7 @@ export const Contact = () => {
                 </a>
 
                 <a
-                  href="https://linkedin.com/in/aishwaryagupta"
+                  href="https://www.linkedin.com/in/aishwarya-gupta-381500250/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-lg bg-background border border-border hover:border-accent/50 transition-colors group"
