@@ -1,73 +1,125 @@
+import {
+  BarChart3,
+  Search,
+  Mail,
+  Megaphone,
+  Palette,
+  Workflow,
+  Database,
+  Sheet,
+  LineChart,
+  ExternalLink,
+} from "lucide-react";
+
+// ✅ Base URL safe for GitHub Pages
+const base = import.meta.env.BASE_URL;
+
+// ✅ Keep data as-is, just ADD optional icon fields
 const toolCategories = [
   {
-    category: 'Analytics & Data',
-    description: 'Tracking, measuring, and visualizing performance',
+    category: "Analytics & Data",
+    description: "Tracking, measuring, and visualizing performance",
+    icon: `${base}images/categories/analytics.svg`, // ✅ category image
     tools: [
-      { name: 'Google Analytics', level: 'Intermediate' },
-      { name: 'Google Search Console', level: 'Intermediate' },
-      { name: 'SQL', level: 'Intermediate' },
-      { name: 'Excel', level: 'Advanced' },
-      { name: 'Tableau', level: 'Intermediate' },
+      { name: "Google Analytics", level: "Intermediate", icon: `${base}images/tools/ga.svg` },
+      { name: "Google Search Console", level: "Intermediate", icon: `${base}images/tools/gsc.svg` },
+      { name: "SQL", level: "Intermediate", icon: `${base}images/tools/sql.svg` },
+      { name: "Excel", level: "Advanced", icon: `${base}images/tools/excel.svg` },
+      { name: "Tableau", level: "Intermediate", icon: `${base}images/tools/tableau.svg` },
     ],
   },
   {
-    category: 'SEO & Research',
-    description: 'Keyword research and market analysis',
+    category: "SEO & Research",
+    description: "Keyword research and market analysis",
+    icon: `${base}images/categories/seo.svg`,
     tools: [
-      { name: 'Content Gap Analysis', level: 'Basic', url: 'https://docs.google.com/document/d/1pWTxxW3HPbvzJQTkR81G7jVGEbA0srQf/edit?usp=drive_link&ouid=100211897775260305611&rtpof=true&sd=true' },
-      { name: 'Keyword Research', level: 'Advanced', url: 'https://docs.google.com/document/d/1Mgb4gCwId8BXUfHQW-UnMKDhOt3uwlaW/edit?usp=drive_link&ouid=100211897775260305611&rtpof=true&sd=true' },
-      { name: 'Market Research', level: 'Intermediate', url: 'https://docs.google.com/presentation/d/15XXrn2HtGIXhEIaHgf2dQvbFNjOA4r6g/edit?usp=drive_link&ouid=100211897775260305611&rtpof=true&sd=true' },
+      {
+        name: "Content Gap Analysis",
+        level: "Basic",
+         icon: `${base}images/tools/content.svg`,
+        url: "https://docs.google.com/document/d/1pWTxxW3HPbvzJQTkR81G7jVGEbA0srQf/edit?usp=drive_link&ouid=100211897775260305611&rtpof=true&sd=true",
+      },
+      {
+        name: "Keyword Research",
+        level: "Advanced",
+        icon: `${base}images/tools/keyword.svg`,
+        url: "https://docs.google.com/document/d/1Mgb4gCwId8BXUfHQW-UnMKDhOt3uwlaW/edit?usp=drive_link&ouid=100211897775260305611&rtpof=true&sd=true",
+      },
+      {
+        name: "Market Research",
+        level: "Intermediate",
+        icon: `${base}images/tools/market_research.svg`,
+        url: "https://docs.google.com/presentation/d/15XXrn2HtGIXhEIaHgf2dQvbFNjOA4r6g/edit?usp=drive_link&ouid=100211897775260305611&rtpof=true&sd=true",
+      },
     ],
   },
   {
-    category: 'Email & CRM',
-    description: 'Email campaigns and automation',
+    category: "Email & CRM",
+    description: "Email campaigns and automation",
     url: `/portfolio/demo/email-crm.html`,
+    icon: `${base}images/categories/mail.svg`,
     tools: [
-      { name: 'HubSpot', level: 'Intermediate' },
-      { name: 'Mailchimp', level: 'Intermediate' },
+      { name: "HubSpot", level: "Intermediate", icon: `${base}images/tools/hubspot.svg` },
+      { name: "Mailchimp", level: "Intermediate", icon: `${base}images/tools/mailchimp.svg` },
     ],
   },
   {
-    category: 'Paid Advertising',
-    description: 'Managing paid campaigns',
+    category: "Paid Advertising",
+    description: "Managing paid campaigns",
+    icon: `${base}images/categories/advertise.svg`,
+    tools: [{ name: "Meta Ads Manager", level: "Basic", icon: `${base}images/tools/meta.svg` }],
+  },
+  {
+    category: "Creative & Design",
+    description: "Visual content and branding",
+    icon: `${base}images/categories/creative.svg`,
     tools: [
-      { name: 'Meta Ads Manager', level: 'Basic' },
+      { name: "Canva", level: "Advanced", icon: `${base}images/tools/canva.svg` },
+      { name: "Figma", level: "Intermediate", icon: `${base}images/tools/figma.svg` },
+      { name: "Adobe InDesign", level: "Intermediate", icon: `${base}images/tools/indesign.svg` },
+      { name: "Adobe Illustrator", level: "Basic", icon: `${base}images/tools/illustrator.svg` },
     ],
   },
   {
-    category: 'Creative & Design',
-    description: 'Visual content and branding',
+    category: "Productivity & Workflow",
+    description: "Project management and collaboration",
+    icon: `${base}images/categories/workflow.svg`,
     tools: [
-      { name: 'Canva', level: 'Advanced' },
-      { name: 'Figma', level: 'Intermediate' },
-      { name: 'Adobe InDesign', level: 'Intermediate' },
-      { name: 'Adobe Illustrator', level: 'Basic' },
-    ],
-  },
-  {
-    category: 'Productivity & Workflow',
-    description: 'Project management and collaboration',
-    tools: [
-      { name: 'Notion', level: 'Intermediate' },
-      { name: 'JIRA', level: 'Basic' },
-      { name: 'Google Workspace', level: 'Advanced' },
-      { name: 'MS Office Suite', level: 'Advanced' },
+      { name: "Notion", level: "Intermediate", icon: `${base}images/tools/notion.svg` },
+      { name: "JIRA", level: "Basic", icon: `${base}images/tools/jira.svg` },
+      { name: "Google Workspace", level: "Advanced", icon: `${base}images/tools/google.svg` },
+      { name: "MS Office Suite", level: "Advanced", icon: `${base}images/tools/office_365.svg` },
     ],
   },
 ];
 
-const getLevelColor = (level: string) => {
-  switch (level) {
-    case 'Advanced':
-      return 'bg-accent text-accent-foreground';
-    case 'Intermediate':
-      return 'bg-accent/20 text-accent';
-    case 'Basic':
-      return 'bg-muted text-muted-foreground';
+// ✅ Category icon fallback (lucide)
+const getCategoryIcon = (category: string) => {
+  switch (category) {
+    case "Analytics & Data":
+      return BarChart3;
+    case "SEO & Research":
+      return Search;
+    case "Email & CRM":
+      return Mail;
+    case "Paid Advertising":
+      return Megaphone;
+    case "Creative & Design":
+      return Palette;
+    case "Productivity & Workflow":
+      return Workflow;
     default:
-      return 'bg-muted text-muted-foreground';
+      return BarChart3;
   }
+};
+
+// ✅ Tool icon fallback (lucide)
+const getToolIcon = (toolName: string) => {
+  const name = toolName.toLowerCase();
+  if (name.includes("sql")) return Database;
+  if (name.includes("excel") || name.includes("office")) return Sheet;
+  if (name.includes("tableau") || name.includes("analytics")) return LineChart;
+  return BarChart3;
 };
 
 export const Tools = () => {
@@ -82,50 +134,85 @@ export const Tools = () => {
             Tools & Platforms
           </h2>
           <p className="text-lg text-muted-foreground">
-            What I track, why it matters, and how I use these tools to improve performance.
+            What I use regularly to track performance, improve campaigns, and make data-driven decisions.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {toolCategories.map((category, index) => {
+            const CategoryLucide = getCategoryIcon(category.category);
+
             const cardContent = (
               <div
-                className="p-6 rounded-xl bg-card border border-border card-hover h-full"
+                className="h-full rounded-2xl border border-border bg-card shadow-sm hover:shadow-md transition-shadow p-7"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  {category.category}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  {category.description}
-                </p>
+                {/* Header */}
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="h-10 w-10 rounded-xl bg-accent/10 flex items-center justify-center overflow-hidden">
+                    {category.icon ? (
+                      <img
+                        src={category.icon}
+                        alt={category.category}
+                        className="h-6 w-6 object-contain"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <CategoryLucide className="h-5 w-5 text-accent" />
+                    )}
+                  </div>
 
-                <div className="space-y-3">
-                  {category.tools.map((tool) => (
-                    <div key={tool.name} className="flex items-center justify-between">
-                      {tool.url ? (
-                        <a
-                          href={tool.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-foreground hover:text-accent transition-colors"
-                          onClick={(e) => e.stopPropagation()} // important if card is clickable
-                        >
-                          {tool.name}
-                        </a>
-                      ) : (
-                        <span className="text-foreground">{tool.name}</span>
-                      )}
+                  <div className="min-w-0">
+                    <h3 className="text-xl font-semibold text-foreground leading-tight">
+                      {category.category}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      {category.description}
+                    </p>
+                  </div>
+                </div>
 
-                      <span
-                        className={`text-xs font-medium px-2 py-1 rounded-full ${getLevelColor(
-                          tool.level
-                        )}`}
+                {/* Tool list */}
+                <div className="mt-6 space-y-4">
+                  {category.tools.map((tool) => {
+                    const ToolLucide = getToolIcon(tool.name);
+
+                    const ToolName = tool.url ? (
+                      <a
+                        href={tool.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-2 text-foreground hover:text-accent transition-colors"
+                        onClick={(e) => e.stopPropagation()}
                       >
-                        {tool.level}
-                      </span>
-                    </div>
-                  ))}
+                        <span>{tool.name}</span>
+                        <ExternalLink className="h-4 w-4 opacity-60 group-hover:opacity-100" />
+                      </a>
+                    ) : (
+                      <span className="text-foreground">{tool.name}</span>
+                    );
+
+                    return (
+                      <div key={tool.name} className="flex items-center gap-3">
+                        <div className="h-9 w-9 rounded-xl bg-muted/50 flex items-center justify-center overflow-hidden">
+                          {tool.icon ? (
+                            <img
+                              src={tool.icon}
+                              alt={tool.name}
+                              className="h-5 w-5 object-contain"
+                              loading="lazy"
+                            />
+                          ) : (
+                            <ToolLucide className="h-4 w-4 text-muted-foreground" />
+                          )}
+                        </div>
+
+                        <div className="text-base font-medium truncate">
+                          {ToolName}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             );
@@ -148,13 +235,12 @@ export const Tools = () => {
           })}
         </div>
 
-
         {/* Certifications */}
-        <div className="mt-12 p-6 rounded-xl bg-card border border-border">
+        <div className="mt-12 rounded-2xl border border-border bg-card shadow-sm p-7">
           <h3 className="text-lg font-semibold text-foreground mb-4 text-center">
             Certifications
           </h3>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3">
             <span className="px-4 py-2 rounded-full bg-accent/10 text-accent font-medium">
               Marketing Essentials (NPTEL)
             </span>
