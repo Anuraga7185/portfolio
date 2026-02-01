@@ -11,23 +11,23 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <a href="#" className="text-xl font-bold">
-              Aishwarya<span className="text-accent">.</span>
+              Aishwarya Gupta<span className="text-accent">.</span>
             </a>
             <p className="text-primary-foreground/70 text-sm mt-2">
-              Product Marketing Associate • Tools, Talent & Curiosity
+             Marketing Associate • Tools, Talent & Curiosity
             </p>
           </div>
 
           <div className="flex items-center gap-4">
             <a
-              href="mailto:aishwarya.gupta@email.com"
+              href="mailto:Gupta995646@gmail.com"
               className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
               aria-label="Email"
             >
               <Mail size={20} />
             </a>
             <a
-              href="https://linkedin.com/in/aishwaryagupta"
+              href="https://www.linkedin.com/in/aishwarya-gupta-381500250/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"

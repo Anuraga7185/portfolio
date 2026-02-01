@@ -156,7 +156,7 @@ export const About = () => {
             met analytics, shaping marketing assets that spoke and converted.
           </p>
           <p className="text-muted-foreground leading-relaxed mt-4">
-            Today, as a Product Marketing Associate, I turn campaigns, analytics, and creativity 
+            Today, as a Marketing Associate, I turn campaigns, analytics, and creativity 
             into ripples of measurable results.
           </p>
         </div>
