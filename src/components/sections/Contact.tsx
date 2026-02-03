@@ -96,7 +96,7 @@ export const Contact = () => {
               </p>
 
               <Button variant="hero" size="lg" className="w-full" asChild>
-                <a href="#" download>
+                <a href={`${import.meta.env.BASE_URL}resume/Aishwarya_Gupta_Resume.pdf`} download>
                   <FileText size={18} />
                   Download Resume (PDF)
                 </a>
