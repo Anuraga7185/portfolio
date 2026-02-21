@@ -74,7 +74,7 @@ const toolCategories = [
     description: "Visual content and branding",
     icon: `${base}images/categories/creative.svg`,
     tools: [
-      { name: "Canva", level: "Advanced", icon: `${base}images/tools/canva.svg`, url: `/demo/demo-canva.html`, },
+      { name: "Canva", level: "Advanced", icon: `${base}images/tools/canva.svg`, url: `/portfolio/demo/demo-canva.html`, },
       { name: "Figma", level: "Intermediate", icon: `${base}images/tools/figma.svg` },
       { name: "Adobe InDesign", level: "Intermediate", icon: `${base}images/tools/indesign.svg` },
       { name: "Adobe Illustrator", level: "Basic", icon: `${base}images/tools/illustrator.svg` },
