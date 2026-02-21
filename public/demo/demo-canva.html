@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aishwarya Gupta — Social Media Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f2ee;
+    --accent: #e8c547;
+    --accent2: #ff6b35;
+    --muted: #888;
+    --card: #141414;
+    --border: #222;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 8vw 60px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: 'AG';
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(180px, 25vw, 380px);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px #1e1e1e;
+    letter-spacing: -10px;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .hero-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 110px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -3px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: #aaa;
+    max-width: 520px;
+    margin-bottom: 48px;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    color: var(--white);
+    transition: all 0.25s;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--black);
+    border-color: var(--accent);
+    font-weight: 700;
+  }
+
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-primary:hover { background: transparent; color: var(--accent); }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stat {
+    padding: 40px 8vw;
+    border-right: 1px solid var(--border);
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Space Mono', monospace;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 80px 8vw;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 56px;
+  }
+
+  .section-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 3px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    letter-spacing: -2px;
+    line-height: 1;
+  }
+
+  /* ── PROJECT CARDS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .project-card {
+    background: var(--card);
+    padding: 40px;
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card:hover { background: #1a1a1a; }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--accent);
+    transition: height 0.4s ease;
+  }
+
+  .project-card:hover::before { height: 100%; }
+
+  .project-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .project-desc {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .project-metrics {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .metric {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .metric-val {
+    font-family: 'Space Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .metric-key {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ── DESIGN SAMPLES ── */
+  .designs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .design-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    aspect-ratio: 4/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #111;
+  }
+
+  .design-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .design-card:hover img { transform: scale(1.05); }
+
+  .design-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+  }
+
+  .design-card:hover .design-overlay { opacity: 1; }
+
+  .design-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* Placeholder design cards */
+  .design-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .dp-icon { font-size: 36px; }
+
+  .dp-text {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .skill-item {
+    background: var(--card);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: background 0.3s;
+  }
+
+  .skill-item:hover { background: #181818; }
+
+  .skill-icon { font-size: 28px; margin-bottom: 4px; }
+
+  .skill-name {
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .skill-detail {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .skill-bar {
+    height: 2px;
+    background: var(--border);
+    margin-top: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: var(--accent);
+    animation: fillBar 1.5s ease both;
+    animation-play-state: paused;
+  }
+
+  .skill-fill.animate { animation-play-state: running; }
+
+  @keyframes fillBar {
+    from { width: 0; }
+  }
+
+  /* ── PLATFORM POV ── */
+  .pov-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+
+  .pov-card {
+    border: 1px solid var(--border);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pov-platform {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .pov-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--black);
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .pov-desc {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.7;
+  }
+
+  /* ── ABOUT / CTA ── */
+  .cta-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .cta-text h2 { margin-bottom: 24px; }
+
+  .cta-text p {
+    color: #888;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .cta-actions { display: flex; flex-direction: column; gap: 16px; }
+
+  .contact-line {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    border: 1px solid var(--border);
+    transition: border-color 0.3s;
+    text-decoration: none;
+    color: var(--white);
+  }
+
+  .contact-line:hover { border-color: var(--accent); }
+
+  .contact-icon { font-size: 20px; }
+
+  .contact-info { flex: 1; }
+
+  .contact-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+  }
+
+  .contact-val { font-size: 14px; font-weight: 500; }
+
+  .contact-arrow { color: var(--muted); transition: color 0.3s; }
+  .contact-line:hover .contact-arrow { color: var(--accent); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 40px 8vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .footer-note {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 2px;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .stat { border-right: none; border-bottom: 1px solid var(--border); }
+    .cta-section { grid-template-columns: 1fr; gap: 40px; }
+    h1 { letter-spacing: -1px; }
+  }
+
+  /* Design card image wrappers */
+  .img-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .img-wrapper img {
+    width: 100%;
+    height: 100%;
+   object-fit: contain;      /* show full image */
+  object-position: center;  /* keep centered */
+  background: #111;  
+  }
+
+  /* ===== Design Samples Masonry ===== */
+.designs-masonry {
+  column-count: 3;
+  column-gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .designs-masonry { column-count: 2; }
+}
+@media (max-width: 600px) {
+  .designs-masonry { column-count: 1; }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin: 0 0 20px;
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0f0f0f;
+  cursor: zoom-in;
+}
+
+.masonry-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.masonry-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.masonry-item figcaption {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.cap-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.cap-sub {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.masonry-item:hover { border-color: rgba(232,197,71,0.5); }
+.masonry-item:hover::after { opacity: 1; }
+.masonry-item:hover figcaption { opacity: 1; transform: translateY(0); }
+
+/* ===== Lightbox ===== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 10000;
+}
+
+.lightbox.open { display: flex; }
+
+.lb-img {
+  max-width: min(1100px, 95vw);
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: #0b0b0b;
+}
+
+.lb-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.14);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.lb-close:hover {
+  border-color: rgba(232,197,71,0.5);
+  color: var(--accent);
+}
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--border); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero" style="border-bottom:1px solid var(--border);">
+  <div class="hero-tag">Social Media Portfolio · 2025</div>
+  <h1>Aishwarya<br><em>Gupta</em></h1>
+  <p class="hero-sub">Social media strategist with hands-on experience in Canva design, short-form video, platform growth & analytics. Obsessed with pop culture, trends, and building audiences that actually care.</p>
+  <div class="hero-links">
+    <a href="https://www.linkedin.com/in/aishwarya-gupta-381500250/" target="_blank" class="btn btn-primary">↗ LinkedIn Profile</a>
+    <a href="#projects" class="btn">View Projects</a>
+    <a href="#contact" class="btn">Contact Me</a>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats-bar">
+  <div class="stat fade-up">
+    <div class="stat-num">1–2</div>
+    <div class="stat-label">Years Experience</div>
+  </div>
+  <div class="stat fade-up" style="animation-delay:0.1s">
+    <div class="stat-num">60+</div>
+    <div class="stat-label">Hired — Javin Page</div>
+  </div>
+  <div class="stat fade-up" style="animation-delay:0.2s">
+    <div class="stat-num">4+</div>
+    <div class="stat-label">Platforms Managed</div>
+  </div>
+  <div class="stat fade-up" style="animation-delay:0.3s">
+    <div class="stat-num">∞</div>
+    <div class="stat-label">Scroll Hours Clocked</div>
+  </div>
+</div>
+
+<!-- ── PROJECTS ── -->
+<section id="projects">
+  <div class="section-header fade-up">
+    <span class="section-num">01 /</span>
+    <h2>Live Projects</h2>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card fade-up">
+      <span class="project-tag">Instagram · B2B Brand</span>
+      <div class="project-title">Javin — Company Instagram Page</div>
+      <p class="project-desc">Managed and grew Javin's official Instagram presence end-to-end. Responsible for content strategy, visual design in Canva, scheduling, and tracking engagement metrics. The page actively contributed to hiring 60+ candidates by building brand credibility and reach on social.</p>
+      <div class="project-metrics">
+        <div class="metric">
+          <span class="metric-val">60+</span>
+          <span class="metric-key">Hires Driven</span>
+        </div>
+        <div class="metric">
+          <span class="metric-val">↑</span>
+          <span class="metric-key">Organic Growth</span>
+        </div>
+        <div class="metric">
+          <span class="metric-val">Full</span>
+          <span class="metric-key">Page Manager</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" style="transition-delay:0.1s">
+      <span class="project-tag">Canva Design · Education Brand</span>
+      <div class="project-title">Brandzy — School Digital Marketing Creatives</div>
+      <p class="project-desc">Designed a full series of social media creatives for Brandzy, a school-focused digital marketing brand. The carousel series included stat-driven awareness posts, interactive engagement hooks, and service showcases — all designed in Canva with a consistent navy & gold brand identity.</p>
+      <div class="project-metrics">
+        <div class="metric">
+          <span class="metric-val">5+</span>
+          <span class="metric-key">Creatives Made</span>
+        </div>
+        <div class="metric">
+          <span class="metric-val">Canva</span>
+          <span class="metric-key">Tool Used</span>
+        </div>
+        <div class="metric">
+          <span class="metric-val">Series</span>
+          <span class="metric-key">Carousel Format</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" style="transition-delay:0.2s">
+      <span class="project-tag">Event Promotion · Entertainment</span>
+      <div class="project-title">Desi District — Event Poster Design</div>
+      <p class="project-desc">Created a bold event poster for Sydney's biggest Desi Night — Desi District. Captured the energy of Bollywood, Dhol vs DJ culture with a dark neon aesthetic. Designed to drive ticket sales and social shares, balancing hype with essential event info in a clean layout.</p>
+      <div class="project-metrics">
+        <div class="metric">
+          <span class="metric-val">$40</span>
+          <span class="metric-key">Ticket Event</span>
+        </div>
+        <div class="metric">
+          <span class="metric-val">Viral</span>
+          <span class="metric-key">Aesthetic Target</span>
+        </div>
+        <div class="metric">
+          <span class="metric-val">Canva</span>
+          <span class="metric-key">Tool Used</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── DESIGN WORK ── -->
+<!-- ── DESIGN WORK ── -->
+<section id="designs">
+  <div class="section-header fade-up">
+    <span class="section-num">02 /</span>
+    <h2>Design Samples</h2>
+  </div>
+
+  <div class="designs-masonry fade-up">
+
+    <figure class="masonry-item" data-full="./images/canva_demo/canva_second_image.jpeg">
+      <img src="../images/canva_demo/canva_second_image.jpeg" alt="Event Poster — Desi District" loading="lazy">
+      <figcaption>
+        <span class="cap-title">Event Poster</span>
+        <span class="cap-sub">Desi District</span>
+      </figcaption>
+    </figure>
+
+    <figure class="masonry-item" data-full="./images/canva_demo/canva_first_image.jpeg">
+      <img src="../images/canva_demo/canva_first_image.jpeg" alt="Brandzy — Awareness Post" loading="lazy">
+      <figcaption>
+        <span class="cap-title">Awareness Post</span>
+        <span class="cap-sub">Brandzy</span>
+      </figcaption>
+    </figure>
+
+    <figure class="masonry-item" data-full="./images/canva_demo/canva_third_image.jpeg">
+      <img src="../images/canva_demo/canva_third_image.jpeg" alt="Brandzy — Services Carousel" loading="lazy">
+      <figcaption>
+        <span class="cap-title">Services Carousel</span>
+        <span class="cap-sub">Brandzy</span>
+      </figcaption>
+    </figure>
+
+    <figure class="masonry-item" data-full="./images/canva_demo/canva_fourth_image.jpeg">
+      <img src="../images/canva_demo/canva_fourth_image.jpeg" alt="Brandzy — Engagement Hook" loading="lazy">
+      <figcaption>
+        <span class="cap-title">Engagement Hook</span>
+        <span class="cap-sub">Brandzy</span>
+      </figcaption>
+    </figure>
+
+    <figure class="masonry-item" data-full="./images/canva_demo/canva_fifth_image.jpeg">
+      <img src="../images/canva_demo/canva_fifth_image.jpeg" alt="Brandzy — Banner Creative" loading="lazy">
+      <figcaption>
+        <span class="cap-title">Brand Banner</span>
+        <span class="cap-sub">Brandzy</span>
+      </figcaption>
+    </figure>
+
+    <figure class="masonry-item" data-full="./images/canva_demo/canva_sixth_image.jpeg">
+      <img src="../images/canva_demo/canva_sixth_image.jpeg" alt="Brandzy — CTA Story" loading="lazy">
+      <figcaption>
+        <span class="cap-title">CTA Story</span>
+        <span class="cap-sub">Brandzy</span>
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" type="button" aria-label="Close">✕</button>
+  <img class="lb-img" alt="">
+</div>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <div class="section-header fade-up">
+    <span class="section-num">03 /</span>
+    <h2>Skills & Tools</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-item fade-up">
+      <div class="skill-icon">🎨</div>
+      <div class="skill-name">Canva Design</div>
+      <div class="skill-detail">Posters, carousels, stories, reels covers, infographics — consistent on-brand visuals across formats.</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+    </div>
+    <div class="skill-item fade-up">
+      <div class="skill-icon">🎬</div>
+      <div class="skill-name">Short-Form Video</div>
+      <div class="skill-detail">Reel editing, trending audio matching, caption hooks, and pacing for Instagram & TikTok.</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+    </div>
+    <div class="skill-item fade-up">
+      <div class="skill-icon">📊</div>
+      <div class="skill-name">Analytics & Metrics</div>
+      <div class="skill-detail">Tracking reach, engagement rate, link clicks, and using data to iterate on content strategy.</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+    </div>
+    <div class="skill-item fade-up">
+      <div class="skill-icon">📱</div>
+      <div class="skill-name">Page Management</div>
+      <div class="skill-detail">End-to-end management of Instagram pages — scheduling, community, and monetisation tracking.</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+    </div>
+    <div class="skill-item fade-up">
+      <div class="skill-icon">🔥</div>
+      <div class="skill-name">Trend Intelligence</div>
+      <div class="skill-detail">Identifying viral moments in Bollywood, Hollywood, and pop culture before they peak.</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+    </div>
+    <div class="skill-item fade-up">
+      <div class="skill-icon">⚙️</div>
+      <div class="skill-name">Algorithm Awareness</div>
+      <div class="skill-detail">Understanding how Instagram, TikTok, YouTube, and Facebook distribute content differently.</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PLATFORM POV ── -->
+<section id="pov">
+  <div class="section-header fade-up">
+    <span class="section-num">04 /</span>
+    <h2>Platform POV</h2>
+  </div>
+  <div class="pov-grid">
+    <div class="pov-card fade-up">
+      <div class="pov-platform">Instagram</div>
+      <span class="pov-tag">Reels-First</span>
+      <p class="pov-desc">Reels get 3–4× more reach than static posts. The algorithm rewards save rate and watch-time over likes. Carousels still win for depth content. Hashtags are declining — keyword captions are rising.</p>
+    </div>
+    <div class="pov-card fade-up" style="transition-delay:0.1s">
+      <div class="pov-platform">TikTok</div>
+      <span class="pov-tag">Hook in 1s</span>
+      <p class="pov-desc">The first second decides everything. For You Page is interest-graph, not follow-graph — giving even new accounts massive reach potential. Duet and Stitch drive discovery. Authenticity > production value.</p>
+    </div>
+    <div class="pov-card fade-up" style="transition-delay:0.2s">
+      <div class="pov-platform">YouTube</div>
+      <span class="pov-tag">Shorts + Long</span>
+      <p class="pov-desc">Shorts drive new subscribers; long-form builds watch time and ad revenue. Thumbnails and titles drive 70% of click decisions. Search-friendly titles give content long-term organic life.</p>
+    </div>
+    <div class="pov-card fade-up" style="transition-delay:0.3s">
+      <div class="pov-platform">Facebook</div>
+      <span class="pov-tag">Community & Shares</span>
+      <p class="pov-desc">Organic reach is lowest here, but share-velocity can spike distribution rapidly. Groups outperform pages for engagement. Best for driving external link traffic and monetisation via Meta Ads.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA / ABOUT ── -->
+<section id="contact">
+  <div class="cta-section">
+    <div class="cta-text fade-up">
+      <h2>Let's<br><em style="font-style:italic;color:var(--accent)">work.</em></h2>
+      <p>I bring a genuine passion for pop culture and entertainment content, combined with real hands-on experience managing brand pages and designing creatives that perform.</p>
+      <p>At EssentiallySports, I'm ready to move fast, stay on trend, and build content that fans actually stop scrolling for.</p>
+    </div>
+    <div class="cta-actions fade-up" style="transition-delay:0.2s">
+      <a href="https://www.linkedin.com/in/aishwarya-gupta-381500250/" target="_blank" class="contact-line">
+        <span class="contact-icon">💼</span>
+        <div class="contact-info">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-val">Aishwarya Gupta</span>
+        </div>
+        <span class="contact-arrow">↗</span>
+      </a>
+      <div class="contact-line">
+        <span class="contact-icon">📸</span>
+        <div class="contact-info">
+          <span class="contact-label">Instagram Work</span>
+          <span class="contact-val">Javin — Company Page (Managed)</span>
+        </div>
+      </div>
+      <div class="contact-line">
+        <span class="contact-icon">📍</span>
+        <div class="contact-info">
+          <span class="contact-label">Availability</span> 
+          <span class="contact-val">Remote · Flexible Hours · Immediate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Aishwarya Gupta</div>
+  <div class="footer-note">Social Media Portfolio · 2025</div>
+</footer>
+
+<script>
+  // Reveal fallback (so page never stays blank)
+  function revealAll() {
+    document.querySelectorAll('.fade-up').forEach(el => {
+      el.classList.add('visible');
+      const fill = el.querySelector?.('.skill-fill');
+      if (fill) fill.classList.add('animate');
+    });
+  }
+
+  // Use observer if available, otherwise fallback
+  if (!('IntersectionObserver' in window)) {
+    revealAll();
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          const fill = entry.target.querySelector?.('.skill-fill');
+          if (fill) fill.classList.add('animate');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // ===== Lightbox =====
+const lb = document.getElementById('lightbox');
+const lbImg = lb.querySelector('.lb-img');
+const lbClose = lb.querySelector('.lb-close');
+
+document.querySelectorAll('.masonry-item').forEach(card => {
+  card.addEventListener('click', () => {
+    const full = card.getAttribute('data-full') || card.querySelector('img')?.src;
+    const alt = card.querySelector('img')?.alt || 'Preview';
+
+    lbImg.src = full;
+    lbImg.alt = alt;
+
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+function closeLightbox() {
+  lb.classList.remove('open');
+  lb.setAttribute('aria-hidden', 'true');
+  lbImg.src = '';
+  document.body.style.overflow = '';
+}
+
+lbClose.addEventListener('click', closeLightbox);
+lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
