@@ -74,7 +74,7 @@ const toolCategories = [
     description: "Visual content and branding",
     icon: `${base}images/categories/creative.svg`,
     tools: [
-      { name: "Canva", level: "Advanced", icon: `${base}images/tools/canva.svg` },
+      { name: "Canva", level: "Advanced", icon: `${base}images/tools/canva.svg`,url: "https://docs.google.com/presentation/d/15XXrn2HtGIXhEIaHgf2dQvbFNjOA4r6g/edit?usp=drive_link&ouid=100211897775260305611&rtpof=true&sd=true", },
       { name: "Figma", level: "Intermediate", icon: `${base}images/tools/figma.svg` },
       { name: "Adobe InDesign", level: "Intermediate", icon: `${base}images/tools/indesign.svg` },
       { name: "Adobe Illustrator", level: "Basic", icon: `${base}images/tools/illustrator.svg` },
